@@ -1,6 +1,7 @@
 import * as React from 'react'
 import { useAuth } from '@clerk/clerk-react'
 import { Outlet, useNavigate } from 'react-router-dom'
+import { Loader } from './components'
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -19,7 +20,7 @@ export default function RootLayout() {
     }
   }, [userId, isLoaded, navigate])
 
-  if (!isLoaded) return 'Loading...'
+  if (!isLoaded) return <Loader />
 
   return (
     <main>
